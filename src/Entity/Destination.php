@@ -49,6 +49,9 @@ class Destination
     #[ORM\OneToMany(mappedBy: 'destination', targetEntity: Note::class)]
     private Collection $notes;
 
+    #[ORM\Column]
+    private ?int $place_disponible = null;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -243,6 +246,18 @@ class Destination
                 $note->setDestination(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPlaceDisponible(): ?int
+    {
+        return $this->place_disponible;
+    }
+
+    public function setPlaceDisponible(int $place_disponible): self
+    {
+        $this->place_disponible = $place_disponible;
 
         return $this;
     }

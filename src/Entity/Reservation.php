@@ -23,6 +23,9 @@ class Reservation
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateRetour = null;
 
+    #[ORM\Column]
+    private ?int $nbPlace = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Reservation
     public function setDateRetour(\DateTimeInterface $dateRetour): self
     {
         $this->dateRetour = $dateRetour;
+
+        return $this;
+    }
+
+    public function getNbPlace(): ?int
+    {
+        return $this->nbPlace;
+    }
+
+    public function setNbPlace(int $nbPlace): self
+    {
+        $this->nbPlace = $nbPlace;
 
         return $this;
     }
