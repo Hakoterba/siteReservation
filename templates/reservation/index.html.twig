@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReservationController!{% endblock %}
+
+{# templates/reservation/form.html.twig #}
+
+
+
+{% block content %}
+    <div class="container">
+        <h1>Réservation de voyage</h1>
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        <div class="form-group">
+            {{ form_label(form.dateDepart) }}
+            {{ form_widget(form.dateDepart, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    
+        <div class="form-group">
+            {{ form_label(form.dateRetour) }}
+            {{ form_widget(form.dateRetour, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.nombrePlace) }}
+            {{ form_widget(form.nombrePlace, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Réserver</button>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
